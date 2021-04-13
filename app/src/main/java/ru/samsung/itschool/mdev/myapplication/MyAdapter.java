@@ -1,6 +1,7 @@
 package ru.samsung.itschool.mdev.myapplication;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,7 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
     @NonNull
     @Override
     public MyItem onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_item,parent,false);
+        return new MyItem(view);
     }
 
     @Override
