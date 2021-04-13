@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,6 +38,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
         holder.textView.setText(arrayList.get(position).getName());
         // загрузить фото
         Picasso.get().load(arrayList.get(position).getUrl()).into(holder.imageView);
+        
     }
 
     @Override
@@ -53,6 +55,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
             textView = itemView.findViewById(R.id.textView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context,"TTT",Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
     }
