@@ -9,12 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
 
     private Context context;
-    private ArrayList arrayList;
+    private ArrayList<MyImage> arrayList;
 
     MyAdapter(ArrayList<MyImage> a, Context c) {
         this.context = c;
@@ -29,7 +31,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
 
     @Override
     public void onBindViewHolder(@NonNull MyItem holder, int position) {
-        // загрузить картинки
+        // загрузить текст
+        holder.textView.setText(arrayList.get(position).getName());
+        // загрузить
+        Picasso.get().load(arrayList.get(position).getUrl()).into(holder.imageView);
     }
 
     @Override
@@ -44,8 +49,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
 
         public MyItem(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById();
-            textView = itemView.findViewById();
+            imageView = itemView.findViewById(R.id.imageView);
+            textView = itemView.findViewById(R.id.textView);
         }
 
     }

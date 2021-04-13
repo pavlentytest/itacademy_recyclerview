@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         // с помощью LayoutManager мы отображаем список - линейно
         RecyclerView.LayoutManager layoutmanager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutmanager);
-        recyclerView.setAdapter(new MyAdapter());
+        recyclerView.setAdapter(new MyAdapter(prepareData(),this));
     }
 
     public ArrayList prepareData() {
