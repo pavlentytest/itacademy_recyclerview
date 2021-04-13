@@ -35,7 +35,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyItem> {
     public void onBindViewHolder(@NonNull MyItem holder, int position) {
         // загрузить текст
         holder.textView.setText(arrayList.get(position).getName());
-        // загрузить
+        // загрузить фото
         Picasso.get().load(arrayList.get(position).getUrl()).into(holder.imageView);
     }
 
